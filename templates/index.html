@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+       body {
+            background-repeat: no-repeat;
+            background-image: url('/static/head.jpg');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+       }
+     
+      .jumbotron {
+        margin-bottom: 70px;
+        padding: 20px;
+      }
+      .bottomright {
+        font-weight: 1000;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 100px;
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        font-size: 18px;
+        background-color: rgba(58, 16, 226, 0.3);
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+    </style>
+    <script src="https://kit.fontawesome.com/33b3cdea20.js" crossorigin="anonymous"></script>
+    <script src="node_modules\aos\dist\aos.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Project DR</title>
+  </head>
+  <body style="background-color:rgba(33, 221, 159, 0.2);">
+    
+  
+    
+      <div class="container" data-aos="slide-up">
+      <div class="jumbotron text-center" style="background-image: url('/static/head.jpg'); background-repeat: no-repeat; background-size: cover; width: 100%; height: 400px;">
+        <marquee><b><h1 style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: bolder;"><br><br><br>Diabetic Retinopathy Detection Using CNN and Watershed Algorithm</h2></b></marquee>
+        </div >
+      <center>
+        <div class="col-lg-6 col-xs-12 text-center" style=" background-color: rgba(154, 212, 226, 0.3); border-radius: 10px; border-color: black; " >        
+          <form class="form-signin" method=post enctype=multipart/form-data>
+            <h3  id = "click"><b>Upload your image here! </b> </h3>
+            <br>
+            <i class="fas fa-upload fa-6x mb-3" id="click2"></i>
+            <br><br><br>
+              <input type="file" name="file" class="form-control-file mb-2" id="inputfile" onchange="readURL(this);"></input>
+              <img id="blah" src="#" alt="your image" />
+              <br><br>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" data-aos="slide-up">Process</button>
+          </form>
+        </center>
+
+        
+      </div>
+   
+      <div class="bottomright">
+        Project by:<br>
+        99210042267 - Battula.Sai Teja<br>
+        99210042164 - Voona.Akshay Kumar<br>
+        99210042189 - Meda.karthik<br>
+        99210042098 - Ch.Renu Charmi Krishna <br>
+      </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $('#inputfile').bind('change', function() {
+          let ext = $('#inputfile').val().split('.').pop().toLowerCase();
+          if($.inArray(ext, ['jpg','jpeg', 'png']) == -1) {
+            $("#inputfile").val(null);
+            alert('only jpeg/jpg/png files are allowed!');
+          }
+      });
+
+      function readURL(input) {
+        
+        document.getElementById("click").innerHTML="<b>File uploaded successfully!</b>"
+        document.getElementById("click2").innerHTML="<h3> click on 'Process' to continue</h3>"
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+  </body>
+</html>
